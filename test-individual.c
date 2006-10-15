@@ -65,7 +65,7 @@ test_individual(void)
 	int j;
 	struct individual *i;
 	struct chromosome *c;
-	size_t chrom_len = sizeof(u_int) * CHAR_BIT;
+	size_t chrom_len = sizeof(unsigned int) * CHAR_BIT;
 	double magick_fitness = 0.7777777;
 
 	i = new_individual(chrom_len);

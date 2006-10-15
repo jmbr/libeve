@@ -24,15 +24,15 @@
 
 
 struct chromosome {
-	u_int *allele;		/* Genetic material */
-	size_t len;		/* Length (in bits) */
+	size_t len;			/* Length (in bits) */
+	unsigned int *allele;		/* Genetic material */
 };
 
 
 extern struct chromosome *chromosome_dup(struct chromosome *self);
 
 extern void chromosome_copy(struct chromosome *src, struct chromosome *dst,
-				u_int src_pos, u_int dst_pos, size_t len);
+				unsigned int src_pos, unsigned int dst_pos, size_t len);
 
 
 #endif /* !CHROMOSOME_PRIV_H */

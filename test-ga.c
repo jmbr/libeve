@@ -29,6 +29,8 @@
 # include <string.h>
 #endif /* STDC_HEADERS */
 
+#include <stdint.h>
+
 #include <time.h>
 #include <math.h>
 #include <assert.h>
@@ -77,7 +79,7 @@ void
 objective(struct individual *i)
 {
 	int j;
-	u_int16_t val;
+	uint16_t val;
 	double fitness;
 	struct chromosome *c;
 

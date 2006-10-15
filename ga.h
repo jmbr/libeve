@@ -31,7 +31,7 @@ struct ga;
  */
 struct fittest {
 	struct individual *i;
-	u_int generation;
+	unsigned generation;
 };
 
 enum ga_selection_strageties {
@@ -55,7 +55,7 @@ enum ga_report_strategies {
 typedef void (*objective_fn)(struct individual *);
 
 
-extern struct ga *new_ga(u_int max_gen,
+extern struct ga *new_ga(unsigned int max_gen,
 			size_t chrom_len,
 			size_t initial, size_t normal,
 			float pcrossover, float pmutation,
@@ -68,7 +68,7 @@ extern void ga_set_report_strategy(struct ga *self, enum ga_report_strategies re
 
 extern void ga_first(struct ga *self);
 extern void ga_next(struct ga *self);
-extern void ga_evolve(struct ga *self, u_int maxgen);
+extern void ga_evolve(struct ga *self, unsigned maxgen);
 
 extern struct fittest *ga_get_best_ever(struct ga *self);
 

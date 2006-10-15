@@ -42,7 +42,7 @@
 
 
 struct topbottom_pairing_data {
-	u_int current;
+	unsigned int current;
 };
 
 void
@@ -105,7 +105,7 @@ preselect_roulette_wheel(struct population *pop)
 static void
 select_roulette_wheel_parent(struct population *pop, struct individual **parent)
 {
-	u_int i;
+	unsigned int i;
 	double sum, pick = random_random();
 	struct individual *cur_indiv;
 	struct roulette_wheel_data *data;
@@ -166,7 +166,7 @@ void
 crossover_single_point(struct individual *dad, struct individual *mom,
 			struct individual **son, struct individual **daughter)
 {
-	u_int xsite;		/* Crossover point */
+	unsigned int xsite;		/* Crossover point */
 	size_t chrom_len;
 	struct chromosome *cdad, *cmom, *cson, *cdaughter;
 
@@ -216,7 +216,7 @@ crossover_uniform(struct individual *dad, struct individual *mom,
 size_t
 mutate(float pmutation, struct individual *indiv)
 {
-	u_int i;
+	unsigned int i;
 	size_t mutations;
 	struct chromosome *c;
 

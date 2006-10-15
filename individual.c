@@ -98,9 +98,9 @@ individual_get_fitness(struct individual *self)
 void
 individual_random(struct individual *self)
 {
-	u_int i;
+	unsigned int i;
 	struct chromosome *c;
-	void (*fn)(struct chromosome *, u_int);
+	void (*fn)(struct chromosome *, unsigned int);
 
 	c = self->chrom;
 

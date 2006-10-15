@@ -39,8 +39,8 @@ typedef void (*report_fn)(struct ga *, FILE *);
  * A genetic algorithm.
  */
 struct ga {
-	u_int current;			/* Current generation index */
-	u_int max_gen;			/* Maximum generation number */
+	unsigned int current;		/* Current generation index */
+	unsigned int max_gen;		/* Maximum generation number */
 
 	size_t chrom_len;		/* Length of a chromosome */
 

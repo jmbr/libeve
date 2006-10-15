@@ -26,7 +26,7 @@
 struct individual {
 	struct chromosome *chrom;	/* Chromosome string */
 	double fitness;			/* Fitness for this individual */
-	u_int xsite;			/* Crossover site */
+	unsigned int xsite;		/* Crossover site */
 };
 
 

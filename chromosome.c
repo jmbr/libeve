@@ -43,7 +43,7 @@
 
 
 #ifndef UINTBITS
-# define UINTBITS	(sizeof(u_int) * CHAR_BIT)
+# define UINTBITS	(sizeof(unsigned int) * CHAR_BIT)
 #endif /* !UINTBITS */
 
 #define NMEMB(len)		((int) ceil((double) len / UINTBITS))
@@ -87,21 +87,21 @@ chromosome_get_len(struct chromosome *self)
 
 
 static void
-set(u_int *i, u_int pos)
+set(unsigned int *i, unsigned int pos)
 {
-	*i |= (u_int) (1 << pos);
+	*i |= (unsigned int) (1 << pos);
 }
 
 static void
-clear(u_int *i, size_t pos)
+clear(unsigned int *i, size_t pos)
 {
-	*i &= (u_int) ~(1 << pos);
+	*i &= (unsigned int) ~(1 << pos);
 }
 
-static u_int
-get(const u_int *i, size_t pos)
+static unsigned int
+get(const unsigned int *i, size_t pos)
 {
-	return (u_int) ((*i >> pos) & 1); 
+	return (unsigned int) ((*i >> pos) & 1); 
 }
 
 #define LOCUS(pos)		((int) floor((double) pos / UINTBITS))
@@ -109,7 +109,7 @@ get(const u_int *i, size_t pos)
 	(op(allele[LOCUS(pos)], pos % UINTBITS))
 
 void
-chromosome_set_allele(struct chromosome *self, u_int pos)
+chromosome_set_allele(struct chromosome *self, unsigned int pos)
 {
 	assert(self && pos < self->len);
 
@@ -117,15 +117,15 @@ chromosome_set_allele(struct chromosome *self, u_int pos)
 }
 
 void
-chromosome_clear_allele(struct chromosome *self, u_int pos)
+chromosome_clear_allele(struct chromosome *self, unsigned int pos)
 {
 	assert(self && pos < self->len);
 
 	BITOP(clear, &self->allele, pos);
 }
 
-u_int
-chromosome_get_allele(struct chromosome *self, u_int pos)
+unsigned int
+chromosome_get_allele(struct chromosome *self, unsigned int pos)
 {
 	assert(self && pos < self->len);
 
@@ -136,7 +136,7 @@ chromosome_get_allele(struct chromosome *self, u_int pos)
 #undef BITOP
 
 void
-chromosome_not_allele(struct chromosome *self, u_int pos)
+chromosome_not_allele(struct chromosome *self, unsigned int pos)
 {
 	assert(self && pos < self->len);
 
@@ -154,7 +154,7 @@ chromosome_not_allele(struct chromosome *self, u_int pos)
 char *
 chromosome_as_string(struct chromosome *self)
 {
-	u_int i;
+	unsigned int i;
 	char *s;
 
 	assert(self);
@@ -181,7 +181,7 @@ chromosome_dup(struct chromosome *self)
 	if (!c)
 		return NULL;
 
-	memcpy(c->allele, self->allele, sizeof(u_int) * NMEMB(self->len));
+	memcpy(c->allele, self->allele, sizeof(unsigned int) * NMEMB(self->len));
 
 	return c;
 }
@@ -189,9 +189,9 @@ chromosome_dup(struct chromosome *self)
 
 void
 chromosome_copy(struct chromosome *src, struct chromosome *dst,
-		u_int src_pos, u_int dst_pos, size_t len)
+		unsigned int src_pos, unsigned int dst_pos, size_t len)
 {
-	u_int i;
+	unsigned int i;
 	size_t chrom_len;
 
 	assert(src && dst);

@@ -43,7 +43,7 @@ static void ga_generation_epilogue(struct ga *self);
 
 
 void
-ga_evolve(struct ga *self, u_int max_gen)
+ga_evolve(struct ga *self, unsigned int max_gen)
 {
 	assert(self);
 	
@@ -58,7 +58,7 @@ ga_evolve(struct ga *self, u_int max_gen)
 void
 ga_first(struct ga *self)
 {
-	u_int i;
+	unsigned int i;
 	struct population *cur_pop;
 	struct individual *cur_indiv;
 
@@ -92,7 +92,7 @@ swap_populations(struct population **old, struct population *new)
 void
 ga_next(struct ga *self)
 {
-	u_int i;
+	unsigned int i;
 	struct population *cur_pop;
 	struct individual *dad, *mom, *son, *daughter;	/* YHVH */
 

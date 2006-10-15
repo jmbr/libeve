@@ -23,9 +23,6 @@
  */
 
 
-#include <sys/types.h>
-
-
 struct chromosome;
 
 
@@ -34,10 +31,10 @@ extern void delete_chromosome(struct chromosome *self);
 
 extern size_t chromosome_get_len(struct chromosome *self);
 
-extern void chromosome_set_allele(struct chromosome *self, u_int pos);
-extern void chromosome_clear_allele(struct chromosome *self, u_int pos);
-extern void chromosome_not_allele(struct chromosome *self, u_int pos);
-extern u_int chromosome_get_allele(struct chromosome *self, u_int pos);
+extern void chromosome_set_allele(struct chromosome *self, unsigned int pos);
+extern void chromosome_clear_allele(struct chromosome *self, unsigned int pos);
+extern void chromosome_not_allele(struct chromosome *self, unsigned int pos);
+extern unsigned int chromosome_get_allele(struct chromosome *self, unsigned int pos);
 
 extern char *chromosome_as_string(struct chromosome *self);
 

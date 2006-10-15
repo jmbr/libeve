@@ -41,7 +41,7 @@
 #include "ga-priv.h"
 
 
-static void ga_set_best_ever(struct ga *self, u_int generation,
+static void ga_set_best_ever(struct ga *self, unsigned int generation,
 				struct individual *candidate);
 
 static void ga_set_selection_strategy(struct ga *self,
@@ -62,7 +62,7 @@ static void ga_report(struct ga *self, FILE *fp);
 
 
 struct ga *
-new_ga(u_int max_gen,
+new_ga(unsigned int max_gen,
 	size_t chrom_len,
 	size_t initial, size_t normal,
 	float pcrossover, float pmutation,
@@ -136,7 +136,7 @@ delete_ga(struct ga *self)
 
 
 void
-ga_evolve(struct ga *self, u_int max_gen)
+ga_evolve(struct ga *self, unsigned int max_gen)
 {
 	assert(self);
 
@@ -149,7 +149,7 @@ ga_evolve(struct ga *self, u_int max_gen)
 void
 ga_first(struct ga *self)
 {
-	u_int i;
+	unsigned int i;
 	struct population *cur_pop;
 	struct individual *cur_indiv;
 
@@ -189,7 +189,7 @@ swap_populations(struct population **old, struct population *new)
 void
 ga_next(struct ga *self)
 {
-	u_int i;
+	unsigned int i;
 	struct population *cur_pop;
 	struct individual *dad, *mom, *son, *daughter;	/* YHVH */
 
@@ -255,7 +255,7 @@ ga_mutate(struct ga *self, struct individual *indiv)
 
 
 void
-ga_set_best_ever(struct ga *self, u_int generation,
+ga_set_best_ever(struct ga *self, unsigned int generation,
 		struct individual *candidate)
 {
 	int status, should_change = 1;
