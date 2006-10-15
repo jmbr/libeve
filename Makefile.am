@@ -9,4 +9,9 @@ libeve_la_SOURCES = \
 	random.c \
 	report.c
 
+bin_PROGRAMS = test-ga
+test_ga_SOURCES = test-ga.c
+test_ga_LDFLAGS = -lm
+test_ga_LDADD = libeve.la
+
 #	evolution.c

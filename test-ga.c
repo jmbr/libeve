@@ -45,6 +45,7 @@
 
 static void test_ga(void);
 static void objective(struct individual *i);
+static double chromosome_to_double(struct chromosome *c);
 
 
 int
@@ -63,11 +64,12 @@ test_ga(void)
 
 	random_seed(time(NULL));
 
-	g = new_ga(1000, 16, 128, 64, 0.9, 0.0001, 
+	g = new_ga(1000, 32, 128, 64, 0.7, 0.001, 
 			GA_S_TOPBOTTOM_PAIRING, GA_X_SINGLE_POINT, objective);
 	assert(g);
 
 	ga_set_report_strategy(g, GA_R_GRAPH);
+	//ga_set_report_strategy(g, GA_R_HUMAN_READABLE);
 
 	ga_evolve(g, 100);
 
@@ -78,19 +80,23 @@ test_ga(void)
 void
 objective(struct individual *i)
 {
-	int j;
-	uint16_t val;
-	double fitness;
 	struct chromosome *c;
 
-	c = individual_get_chromosome(i);
+	individual_set_fitness(i, chromosome_to_double(individual_get_chromosome(i)));
+}
+
+
+double
+chromosome_to_double(struct chromosome *c)
+{
+	int i;
+	uint32_t val;
+
 	assert(c);
 
-	for (j = 0, val = 0; j < chromosome_get_len(c); j++)
-		if (chromosome_get_allele(c, j) == 1)
-			val |= (1 << j);
+	for (i = 0, val = 0; i < chromosome_get_len(c); i++)
+		if (chromosome_get_allele(c, i) == 1)
+			val |= (1 << i);
 
-	fitness = (double) val;
-
-	individual_set_fitness(i, fitness);
+	return (double) val;
 }
