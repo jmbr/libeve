@@ -34,10 +34,10 @@ struct fittest {
 	unsigned generation;
 };
 
-enum ga_selection_strageties {
-	GA_S_TOPBOTTOM_PAIRING
-,	GA_S_ROULETTE_WHEEL
-,	GA_S_TOURNAMENT
+enum ga_selection_strategies {
+	GA_S_TOPBOTTOM_PAIRING,
+	GA_S_ROULETTE_WHEEL,
+	GA_S_TOURNAMENT
 };
 
 enum ga_crossover_strategies {
@@ -47,9 +47,9 @@ enum ga_crossover_strategies {
 };
 
 enum ga_report_strategies {
-	GA_R_NOREPORT = 0
-,	GA_R_HUMAN_READABLE
-,	GA_R_GRAPH		/* Output suitable for GNU plotutils' graph */
+	GA_R_NOREPORT = 0,
+	GA_R_HUMAN_READABLE,
+	GA_R_GRAPH
 };
 
 typedef void (*objective_fn)(struct individual *);
