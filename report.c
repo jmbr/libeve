@@ -31,10 +31,6 @@
 #include <assert.h>
 #include <sys/types.h>
 
-#ifdef HAVE_PLOT_H
-# include <plot.h>
-#endif /* HAVE_PLOT_H */
-
 #include "individual.h"
 #include "individual-priv.h"
 #include "population.h"
