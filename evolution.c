@@ -94,7 +94,7 @@ ga_next(struct ga *self)
 {
 	unsigned int i;
 	struct population *cur_pop;
-	struct individual *dad, *mom, *son, *daughter;	/* YHVH */
+	struct individual *dad, *mom, *son, *daughter;
 
 	assert(self && self->cur_pop);
 

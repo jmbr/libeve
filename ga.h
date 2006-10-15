@@ -40,10 +40,10 @@ enum ga_selection_strageties {
 ,	GA_S_TOURNAMENT
 };
 
-enum ga_crossover_strageties {
-	GA_X_SINGLE_POINT
-,	GA_X_N_POINT
-,	GA_X_UNIFORM
+enum ga_crossover_strategies {
+	GA_X_SINGLE_POINT,
+	GA_X_N_POINT,
+	GA_X_UNIFORM
 };
 
 enum ga_report_strategies {
@@ -59,8 +59,8 @@ extern struct ga *new_ga(unsigned int max_gen,
 			size_t chrom_len,
 			size_t initial, size_t normal,
 			float pcrossover, float pmutation,
-			enum ga_selection_strageties selection_strategy,
-			enum ga_crossover_strageties crossover_strategy,
+			enum ga_selection_strategies selection_strategy,
+			enum ga_crossover_strategies crossover_strategy,
 			objective_fn obj_fn);
 extern void delete_ga(struct ga *self);
 

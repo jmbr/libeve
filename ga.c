@@ -45,10 +45,10 @@ static void ga_set_best_ever(struct ga *self, unsigned int generation,
 				struct individual *candidate);
 
 static void ga_set_selection_strategy(struct ga *self,
-			enum ga_selection_strageties selection_strategy);
+			enum ga_selection_strategies selection_strategy);
 
 static void ga_set_crossover_strategy(struct ga *self,
-			enum ga_crossover_strageties crossover_strategy);
+			enum ga_crossover_strategies crossover_strategy);
 
 static void ga_cross(struct ga *self, struct individual *dad,
 			struct individual *mom, struct individual **son,
@@ -66,8 +66,8 @@ new_ga(unsigned int max_gen,
 	size_t chrom_len,
 	size_t initial, size_t normal,
 	float pcrossover, float pmutation,
-	enum ga_selection_strageties selection_strategy,
-	enum ga_crossover_strageties crossover_strategy,
+	enum ga_selection_strategies selection_strategy,
+	enum ga_crossover_strategies crossover_strategy,
 	objective_fn obj_fn)
 {
 	struct ga *g;
@@ -191,7 +191,7 @@ ga_next(struct ga *self)
 {
 	unsigned int i;
 	struct population *cur_pop;
-	struct individual *dad, *mom, *son, *daughter;	/* YHVH */
+	struct individual *dad, *mom, *son, *daughter;
 
 	assert(self && self->cur_pop);
 
@@ -293,7 +293,7 @@ ga_get_best_ever(struct ga *self)
 
 void
 ga_set_selection_strategy(struct ga *self,
-			enum ga_selection_strageties selection_strategy)
+			enum ga_selection_strategies selection_strategy)
 {
 	preselection_fn preselect = NULL;
 	selection_fn select = NULL;
@@ -321,7 +321,7 @@ ga_set_selection_strategy(struct ga *self,
 
 void
 ga_set_crossover_strategy(struct ga *self,
-			enum ga_crossover_strageties crossover_strategy)
+			enum ga_crossover_strategies crossover_strategy)
 {
 	crossover_fn cross = NULL;
 
