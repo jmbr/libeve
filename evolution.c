@@ -133,9 +133,7 @@ ga_generation_epilogue(struct ga *self)
 
 	population_compute_fitness_stats(self->cur_pop);
 
-	/*
 	population_print(self->cur_pop, stdout);
-	*/
 
 	ga_report(self, stdout);
 

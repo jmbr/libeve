@@ -50,10 +50,10 @@ preselect_topbottom_pairing(struct population *pop)
 {
 	struct topbottom_pairing_data *data;
 
-	assert(pop);	/* new_pop can be NULL */
+	assert(pop);	/* new_pop can't be NULL */
 
 	data = calloc(1, sizeof(struct topbottom_pairing_data));
-	assert(data);	/* xmalloc */
+	assert(data);	/* XXX - Need xmalloc */
 
 	data->current = 0;
 

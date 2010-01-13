@@ -130,6 +130,7 @@ population_print(struct population *self, FILE *fp)
 {
 	int i;
 
-	for (i = 0; i < self->len; i++)
-		individual_print(self->pop[i], fp);
+        individual_print(population_get_fittest(self), stdout);
+	/* for (i = 0; i < self->len; i++) */
+	/* 	individual_print(self->pop[i], fp); */
 }

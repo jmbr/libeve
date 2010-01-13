@@ -64,12 +64,12 @@ test_ga(void)
 
 	random_seed(time(NULL));
 
-	g = new_ga(1000, 32, 128, 64, 0.7, 0.001, 
+	g = new_ga(5000, 18, 100, 50, 0.8, 0.0001, 
 			GA_S_TOPBOTTOM_PAIRING, GA_X_SINGLE_POINT, objective);
 	assert(g);
 
-	ga_set_report_strategy(g, GA_R_GRAPH);
-	//ga_set_report_strategy(g, GA_R_HUMAN_READABLE);
+	/* ga_set_report_strategy(g, GA_R_GRAPH); */
+	ga_set_report_strategy(g, GA_R_HUMAN_READABLE);
 
 	ga_evolve(g, 100);
 
@@ -80,9 +80,17 @@ test_ga(void)
 void
 objective(struct individual *i)
 {
+	double value;
 	struct chromosome *c;
 
-	individual_set_fitness(i, chromosome_to_double(individual_get_chromosome(i)));
+	assert(i);
+
+	c = individual_get_chromosome(i);
+	assert(c);
+
+	value = chromosome_to_double(c);
+
+	individual_set_fitness(i, value * value);
 }
 
 
