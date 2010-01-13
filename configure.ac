@@ -6,6 +6,7 @@ AC_INIT(libeve, 0.1, jmbr@superadditive.com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([ga.c])
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
 AC_PROG_CC
